@@ -1,5 +1,13 @@
-%%
-% Test script
-a = 0:0.01:10;
-b = sin(2*pi*5*a);
-plot (a,b);
+i = dicomread("Lumen1.dcm");
+info = dicominfo("Lumen1.dcm");
+load image5_1.mat;
+figure;
+imshow(i(:,:,:,2));
+figure;
+imshow(image5(:,:,2),[]);
+% for n=1:85
+%     imshow(image5(:,:,n));
+%     pause(0.5);
+% end
+
+
