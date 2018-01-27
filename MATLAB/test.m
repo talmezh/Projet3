@@ -9,5 +9,12 @@ imshow(image5(:,:,2),[]);
 %     imshow(image5(:,:,n));
 %     pause(0.5);
 % end
+%%
+
+[X,Y] = deal(1:40); % Create grid reference 
+Z = peaks(40); % Create grid height 
+surf(X,Y,Z);
+stlwrite('test.stl',X,Y,Z,'mode','ascii')
+
 
 
