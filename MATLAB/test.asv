@@ -7,7 +7,7 @@ lum1 = dicomread(OCT_path +"Lumen1.dcm");
 info = dicominfo(OCT_path +"Lumen1.dcm");
 load (OCT_path + "image5_1.mat");
 for i=1:size(lum1,4)
-    lum1(i) = layers2image(lum1(:,:,:,i));
+    lum1[ = layers2image(lum1(:,:,:,i));
 end
 
 % figure;
