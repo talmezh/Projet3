@@ -6,26 +6,30 @@ OCT_path= "C:\Users\talmezh\Desktop\Annee3\H18\Projet 3\Code\OCT_data\";
 lum1 = dicomread(OCT_path +"Lumen1.dcm");
 info = dicominfo(OCT_path +"Lumen1.dcm");
 load (OCT_path + "image5_1.mat");
-for i=1:size(lum1,4)
-    lum1(i) = layers2image(lum1(:,:,:,i));
+figure; imshow(image5(:,:,2))
+figure;imshow(lum1(:,:,1));
+figure;imshow(lum1(:,:,2));
+lume1(:,:,1) = layers2image(lum1(:,:,:,1));
+
+[x,y] = find(lume1(:,:,1) == 255);
+[Gmag, Gdir] = imgradient(image5(:,:,2));
+image.coordx = x';
+image.coordy = y';
+for n=1:size(x)
+    z(n,:)=[x(n), y(n), image5(x(n),y(n),2),Gmag(x(n),y(n)), Gdir(x(n),y(n))];
+    image.val(n) = image5(x(n),y(n),2);
+    image.gMag(n) = Gmag(x(n),y(n));
+    image.gDir(n) = Gdir(x(n),y(n));
 end
 
-% figure;
-% imshow(lum1 == 255);
 
 
-figure;
-imshow(image5(:,:,2),[]);
-% for n=1:85
-%     imshow(image5(:,:,n));
-%     pause(0.5);
-% end
+
 %%
 
-% [X,Y] = deal(1:40); % Create grid reference 
-% Z = peaks(40); % Create grid height 
-% surf(X,Y,Z);
-% stlwrite('test.stl',X,Y,Z,'mode','ascii')
+% filename = "C:\Users\talmezh\Desktop\Annee3\H18\Projet 3\Code\Poisson_module\Poisson_module\test.ply";
+% ptCloud = pcread(filename);
+ptCloud1 = pointCloud(rand(100, 3, 'single'));
 
 
 

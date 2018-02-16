@@ -1,0 +1,25 @@
+%%
+% Make points
+
+%Parametric equation
+r = 1; %radius
+theta = linspace(0, 2*pi, 100); %angles
+x = r*cos(theta);
+y = r*sin(theta);
+z = linspace(0,1,20);
+xyz = zeros(length(x)*length(z), 3);
+norm = zeros(size(xyz));
+for n = 1: length(z)
+    center = [0 0 z(n)];
+    rang_i = (n-1)*length(x)+1;
+    rang_f = rang_i-1 + length(x);
+    range = rang_i : rang_f;
+    xyz(range,1) = x;
+    xyz(range,2) = y;
+    xyz(range,3) = z(n);
+    norm(range,1) = center(1)-x;
+    norm(range,2) = center(2)-y;
+    norm(range,3) = center(3)-z(n);
+end
+
+
