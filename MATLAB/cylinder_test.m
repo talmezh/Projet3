@@ -1,16 +1,16 @@
 %%
 % Generate a PLY file containing a point cloud that shape a cylinder
 
-% %Parametric equation of artery
-% r = 1; %radius
+%Parametric equation of artery
+% r = 60; %radius
 % theta = linspace(0, 2*pi, 100); %angles
 % x = r*cos(theta);
 % y = r*sin(theta);
-% z = linspace(0,2,50);
+% z = 0:85;
 % 
 % %Parametric equation of path
 % u = zeros(length(z),1);
-% v = sin(z);
+% v = u;
 % 
 % 
 % xyz = zeros(length(x)*length(z), 6); % points matrix
@@ -35,8 +35,8 @@
 % figure;
 % line(u,z,v);
 path_in = 'C:\Users\talmezh\Desktop\Annee3\H18\Projet3\Code\Projet3\Poisson_module';
-name_in = '\test_tranches.ply';
-name_out = '\test_tranches_sortie.ply';
+name_in = '\tranches_grad_n3.ply';
+name_out = '\tranches_grad_sortie3.ply';
 write_ply([path_in,name_in],xyz);
 run_poisson([path_in,name_in],[path_in, name_out], 'ascii');
 

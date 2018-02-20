@@ -2,8 +2,8 @@ clear all
 clc
 
 OCT_path= "C:\Users\talmezh\Desktop\Annee3\H18\Projet3\Code\OCT_data\";
-lum1 = dicomread(OCT_path +"Lumen1.dcm");
-info = dicominfo(OCT_path +"Lumen1.dcm");
+lum1 = dicomread(OCT_path +"Lumen3.dcm");
+info = dicominfo(OCT_path +"Lumen3.dcm");
 %load (OCT_path + "image5_1.mat");
 % figure; imshow(image5(:,:,2))
 % figure;imshow(lum1(:,:,1));
@@ -48,9 +48,9 @@ for i=1:size(pts,3)
     xyz(range,1) = pts(1:nb_pts(i),1,i)-center(1);
     xyz(range,2) = pts(1:nb_pts(i),2,i)-center(2);
     xyz(range,3) = i;
-    xyz(range,4) = center(1)-xyz(range,1);
-    xyz(range,5) = center(2)-xyz(range,2);
-    xyz(range,6) = center(3)-xyz(range,3);
+    xyz(range,4) = -xyz(range,1);
+    xyz(range,5) = -xyz(range,2);
+    xyz(range,6) = -xyz(range,3);
 end
 
 
