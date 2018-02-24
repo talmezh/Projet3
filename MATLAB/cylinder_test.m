@@ -10,7 +10,7 @@
 % 
 % %Parametric equation of path
 % u = zeros(length(z),1);
-% v = u;
+% v = z;
 % 
 % 
 % xyz = zeros(length(x)*length(z), 6); % points matrix
