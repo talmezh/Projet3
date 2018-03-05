@@ -34,10 +34,6 @@
 % %Display path
 % figure;
 % line(u,z,v);
-path_in = 'C:\Users\talmezh\Desktop\Annee3\H18\Projet3\Code\Projet3\Poisson_module';
-name_in = '\tranches_grad_n3.ply';
-name_out = '\tranches_grad_sortie3.ply';
-write_ply([path_in,name_in],xyz);
-run_poisson([path_in,name_in],[path_in, name_out], 'ascii');
+
 
 
