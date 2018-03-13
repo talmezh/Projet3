@@ -2,9 +2,6 @@ close all
 clear all
 clc
 
-
-
-
 OCT_dir= "C:\Users\talmezh\Desktop\Annee3\H18\Projet3\Code\OCT_data\";
 lum = dicomread(OCT_dir +"Lumen1.dcm");
 dim = size(lum);
@@ -17,18 +14,17 @@ nb_pts = zeros(dim(4),1);
 % v = 50*sin(pi*(1/(2*length(z)))*z);
 z = 0:dim(4);
 u = 100*sin(pi*(1/(2*length(z)))*z);
-v = 10*sqrt(z);
+v = 5*sqrt(z);
 
 path(:,1) = u;
 path(:,2) = v';
 path(:,3) = z';
 theta = adjust_orientation(path);
 
-%Extract points from dicom
+%Extract points from sections
 for i=1:size(lum,4)
-    
-    lumen1(:,:,i) = layers2image(lum(:,:,:,i));
-    [x,y] = find(lumen1(:,:,i) == 255);
+    section = lum(:,:,:,i);
+    [x,y] = find(im2bw(section,graythresh(section)) == 1);
     nb_pts(i) = length(x);
 
     pts(1:nb_pts(i),1:2,i) = [x y];
