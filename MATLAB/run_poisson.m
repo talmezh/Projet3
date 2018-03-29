@@ -12,7 +12,7 @@ cmd_in = [' --in ',in];
 cmd_out = [' --out ',out];
 
 
-system([path, cmd_in, cmd_out, ' --depth 5']);
+system([path, cmd_in, cmd_out, ' --depth 6', ' --ascii']);
 model=0;
 end
 
